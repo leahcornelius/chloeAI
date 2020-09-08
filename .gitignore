@@ -1,0 +1,8 @@
+models
+__pycache__
+bin
+share
+lib*
+include
+src/chatbot.cfg
+pyvenv.cfg
