@@ -36,7 +36,7 @@ def get_response():
   else:
       return "Error: No message field provided. Please specify an message."
   print("User >>> {}".format(prompt))
-  if (config.getint('decoder', 'max_turns_history' == 0 or prompt.lower() == "reset"):
+  if (config.getint('decoder', 'max_turns_history' == 0) or prompt.lower() == "reset"):
       # we are not using config, purge the context buffer
       turns = []
   else:
