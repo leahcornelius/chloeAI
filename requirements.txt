@@ -3,3 +3,4 @@ torch==1.2.0
 transformers==2.3.0
 python-telegram-bot==12.3.0
 python-omegle
+flask
