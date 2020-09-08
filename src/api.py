@@ -19,7 +19,7 @@ config = None
 mmi_model=None
 mmi_tokenizer=None
 
-admin_users = ['leocornelius', 'nathanarnold]
+admin_users = ['leocornelius', 'nathanarnold']
 
 @app.route('/', methods=['GET'])
 def home():
