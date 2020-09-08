@@ -94,7 +94,7 @@ def message(self, update, context):
     user_message = update.message.text
     if user_message.lower() == 'reset':
         # Restart chat
-	logger.info(f"{update.effective_message.chat_id} - User Reset Bot")
+        logger.info(f"{update.effective_message.chat_id} - User Reset Bot")
         context.chat_data['turns'] = []
         return None
     return_gif = False
