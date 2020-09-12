@@ -55,6 +55,8 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
   }
 }
 
+var apiURL = '127.0.0.1:5000' // default api url
+
 const Chat = ({ saveMsg, botMsg }) =>
   React.createElement("form", {
     onSubmit: e => {
@@ -75,14 +77,19 @@ const Chat = ({ saveMsg, botMsg }) =>
 
 function get_response(userMsg, bm) {
   console.log("User >>> " + userMsg);
-  fetch('http://192.168.1.251:5000/get_response/' + userMsg)
-    //.then(response => handleErrors(response, bm))
-    .then(response => response.text())
-    .then(response => {
-      console.log(response);
-      bm(response);
-    })
-    .catch(error => console.log(error))
+  if (userMsg.startsWith('http')) {
+    // set the api url to the users message
+    apiURL = userMsg
+  } else {
+    fetch(apiURL + '/get_response/' + userMsg)
+      //.then(response => handleErrors(response, bm))
+      .then(response => response.text())
+      .then(response => {
+        console.log(response);
+        bm(response);
+      })
+      .catch(error => console.log(error))
+  }
 }
 
 function handleErrors(response, bm) {

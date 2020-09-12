@@ -7,7 +7,7 @@ import logging
 import random
 
 from model import download_model_folder, download_reverse_model_folder, load_model
-from decoder import generate_response
+from flask import send_from_directory
 import flask
 from flask_cors import CORS, cross_origin
 from flask_ngrok import run_with_ngrok
@@ -27,10 +27,14 @@ mmi_tokenizer = None
 admin_users = ['leocornelius', 'nathanarnold']
 
 
-@app.route('/', methods=['GET'])
-@cross_origin()
-def home():
-    return 'Error: No method defined. Please define a method'
+# Serve React App
+@app.route('/', defaults={'path': ''})
+@app.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory('UI/dist', 'index.html')
 
 
 @app.route('/get_response/<user_msg>', methods=['GET'])
