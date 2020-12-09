@@ -12,7 +12,7 @@ import flask
 from flask_cors import CORS, cross_origin
 from flask_ngrok import run_with_ngrok
 
-app = flask.Flask(__name__)
+app = flask.Flask(__name__, static_folder="UI/dist", template_folder="UI/dist")
 cors = CORS(app)
 run_with_ngrok(app)
 app.config['CORS_HEADERS'] = 'Content-Type'
