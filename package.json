@@ -1,0 +1,24 @@
+{
+  "name": "chloeai",
+  "version": "1.0.0",
+  "description": "Chloe AI is a emotive generative diologe, persona chatbot. The bot is built around [DialoGPT](https://github.com/microsoft/DialoGPT) and uses the decoder implmentaion by [polakowo](https://github.com/polakowo/gpt2bot). (A bit thanks to him for creating this)",
+  "main": "index.js",
+  "dependencies": {
+      "serve": "*"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web": "serve src/UI/dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leocornelius/chloeAI.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leocornelius/chloeAI/issues"
+  },
+  "homepage": "https://github.com/leocornelius/chloeAI#readme"
+}
