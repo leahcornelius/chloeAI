@@ -1,2 +1,2 @@
-release: python3 src/api.py
+release: npm run web
 web: gunicorn src/UI
